@@ -7,14 +7,15 @@ import ContactMe from './components/ContactMe'
 import AutoDetailing from './components/AutoDetailing'
 import './App.css'
 
-// Simple components for each route
-
 
 function App() {
 
   return (
     <Router>
       <div>
+        <div className="w-full flex justify-center py-4">
+          <img src="/images/trustmepic.png" alt="Trust Me" className="h-35"/>
+        </div>
         <nav className="w-full py-6 mb-5 bg-amber-300">
           <div className='mx-4 text-lg'>
             <Link to="/" className='mx-4'>Home</Link>
