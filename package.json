@@ -13,6 +13,10 @@
     "@contentful/f36-components": "^4.80.4",
     "@contentful/f36-icons": "^4.29.0",
     "@tailwindcss/vite": "^4.1.10",
+    "dotenv": "^16.5.0",
+    "flowbite": "^3.1.2",
+    "flowbite-react": "^0.11.8",
+    "nodemailer": "^7.0.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2"
