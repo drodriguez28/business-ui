@@ -19,11 +19,11 @@ function ContactMe() {
     setSubmitted(true);
 
     try {
-      const response = await fetch('http://localhost:8080/send-email', {
+      const response = await fetch('http://localhost:3001/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          to: 'your.email@gmail.com', // or use a fixed recipient
+          to: 'rodriguezdeivid17@gmail.com', // or use a fixed recipient
           subject: `Contact Form: ${selectedOption || 'General Inquiry'}`,
           text: `Name: ${name}\nEmail: ${email}\nService: ${selectedOption}\nDescription: ${description}`
         }),
