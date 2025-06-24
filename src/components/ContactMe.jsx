@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Form, FormControl, TextInput, Box, Textarea, Button } from '@contentful/f36-components';
 
-
-
 function ContactMe() {
 
   const [submitted, setSubmitted] = useState(false);
