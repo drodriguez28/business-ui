@@ -1,13 +1,15 @@
-import React from 'react'
-import { Cards } from '../reuse/Cards'
-
+import React from "react";
+import { Cards } from "../reuse/Cards";
+import { InfoCard } from "../reuse/InfoCard";
 
 function Home() {
   return (
     <div className="max-w-2xl mx-auto mt-10 px-4">
       <h1 className="text-3xl font-bold mb-4">Home/Auto care</h1>
       <p className="text-lg mb-8">
-        Save time by getting all your cleaning needs meet on your personal or business assets. We are here to provide a hassle free and efficient process for our clients. Only high quality work, all in one place.
+        Save time by getting all your cleaning needs meet on your personal or
+        business assets. We are here to provide a hassle free and efficient
+        process for our clients. Only high quality work, all in one place.
       </p>
       <div className="flex gap-6 justify-center flex-wrap">
         <Cards
@@ -25,9 +27,10 @@ function Home() {
           description="Get your yard or business looking professional with our landscaping option to maintain a beautiful aesthetic for clients/employees to admire"
           link="/landscaping"
         />
+        <InfoCard />
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

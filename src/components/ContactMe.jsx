@@ -16,6 +16,7 @@ function ContactMe() {
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
+  const [phone, setPhone] = useState("");
 
   const isFormValid = name.trim() && email.trim() && description.trim();
 
@@ -29,9 +30,9 @@ function ContactMe() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          to: "rodriguezdeivid17@gmail.com", // or use a fixed recipient
+          to: "trussmeservices@gmail.com", // or use a fixed recipient
           subject: `Contact Form: ${selectedOption || "General Inquiry"}`,
-          text: `Name: ${name}\nEmail: ${email}\nService: ${selectedOption}\nDescription: ${description}`,
+          text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${selectedOption}\nDescription: ${description}`,
         }),
       });
 
@@ -44,6 +45,7 @@ function ContactMe() {
           setEmail("");
           setDescription("");
           setSelectedOption("");
+          setPhone("");
         }, 2000);
       } else {
         setShowError(true);
@@ -66,15 +68,31 @@ function ContactMe() {
         )}
         {showError && (
           <div className="mb-4 p-4 rounded bg-red-100 text-red-800 border border-red-300 text-center font-semibold transition">
-            There was an error sending your message. Please try again.
+            There was an error sending your message. Please send text message to 404-860-4223
           </div>
         )}
         <Form onSubmit={submitForm}>
           <FormControl>
             <FormControl.Label isRequired>Name</FormControl.Label>
             <TextInput value={name} onChange={(e) => setName(e.target.value)} />
+            <FormControl.HelpText>Please enter your name</FormControl.HelpText>
+          </FormControl>
+
+          <FormControl>
+            <FormControl.Label isRequired>Phone Number</FormControl.Label>
+            <TextInput
+              value={phone}
+              onChange={(e) => {
+                // Only allow numbers
+                const numericValue = e.target.value.replace(/\D/g, "");
+                setPhone(numericValue);
+              }}
+              type="tel"
+              pattern="[0-9]*"
+              inputMode="numeric"
+            />
             <FormControl.HelpText>
-              Please enter your first name
+              Please enter your phone number (numbers only)
             </FormControl.HelpText>
           </FormControl>
 
