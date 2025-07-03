@@ -7,6 +7,7 @@ import {
   Textarea,
   Button,
 } from "@contentful/f36-components";
+import { DropdownFlowbite } from "../reuse/DropdownFlowbite";
 
 function ContactMe() {
   const [submitted, setSubmitted] = useState(false);
@@ -30,7 +31,7 @@ function ContactMe() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          to: "trussmeservices@gmail.com", // or use a fixed recipient
+          to: "rodriguezdeivid17@gmail.com", // or use a fixed recipient
           subject: `Contact Form: ${selectedOption || "General Inquiry"}`,
           text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${selectedOption}\nDescription: ${description}`,
         }),
@@ -68,7 +69,8 @@ function ContactMe() {
         )}
         {showError && (
           <div className="mb-4 p-4 rounded bg-red-100 text-red-800 border border-red-300 text-center font-semibold transition">
-            There was an error sending your message. Please send text message to 404-860-4223
+            There was an error sending your message. Please send text message to
+            404-860-4223
           </div>
         )}
         <Form onSubmit={submitForm}>
@@ -110,43 +112,18 @@ function ContactMe() {
           {/* Dropdown starts here */}
           <FormControl>
             <FormControl.Label isRequired>Service Type</FormControl.Label>
-            <div className="relative w-48 mx-auto flex justify-center">
-              <select
-                className="w-full border rounded border-[#CFD9E0] p-2 appearance-none pr-8"
+            <div className="relative mx-auto flex justify-center">
+              <DropdownFlowbite
+                label="Select a service"
+                options={[
+                  "Auto Detailing",
+                  "Personal/Business Cleaning",
+                  "Landscaping"
+                ]}
                 value={selectedOption}
-                onChange={(e) => setSelectedOption(e.target.value)}
-                required
-              >
-                <option value="" disabled>
-                  Select a service
-                </option>
-                <option value="Auto Detailing">Auto Detailing</option>
-                <option value="Cleaning">Cleaning</option>
-                <option value="Landscaping">Landscaping</option>
-              </select>
-              {/* Carrot icon */}
-              <span className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </span>
+                onChange={setSelectedOption}
+              />
             </div>
-            {selectedOption && (
-              <div className="mt-2 text-blue-700 font-semibold">
-                You selected: {selectedOption}
-              </div>
-            )}
           </FormControl>
           {/* Dropdown ends here */}
 
