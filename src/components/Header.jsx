@@ -7,7 +7,7 @@ function Header() {
     <div>
       <div className="w-full flex justify-center py-4">
         <Link to="/">
-          <img src="/images/trustmepic.png" alt="Trust Me" className="h-35" />
+          <img src="/images/tm-logo.svg" alt="TM Logo" className="h-35 w-auto" />
         </Link>
       </div>
       <NavBar />
