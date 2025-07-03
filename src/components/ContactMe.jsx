@@ -19,7 +19,8 @@ function ContactMe() {
   const [selectedOption, setSelectedOption] = useState("");
   const [phone, setPhone] = useState("");
 
-  const isFormValid = name.trim() && email.trim() && description.trim();
+  const isFormValid =
+    name.trim() && email.trim() && selectedOption.trim() && phone.trim();
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -118,7 +119,7 @@ function ContactMe() {
                 options={[
                   "Auto Detailing",
                   "Personal/Business Cleaning",
-                  "Landscaping"
+                  "Landscaping",
                 ]}
                 value={selectedOption}
                 onChange={setSelectedOption}
@@ -128,7 +129,7 @@ function ContactMe() {
           {/* Dropdown ends here */}
 
           <FormControl>
-            <FormControl.Label isRequired>Description</FormControl.Label>
+            <FormControl.Label>Description</FormControl.Label>
             <Box>
               <Textarea
                 value={description}
