@@ -8,6 +8,7 @@ import {
   Button,
 } from "@contentful/f36-components";
 import { DropdownFlowbite } from "../reuse/DropdownFlowbite";
+import { LoaderButton } from "../reuse/LoaderButton";
 
 function ContactMe() {
   const [submitted, setSubmitted] = useState(false);
@@ -52,7 +53,7 @@ function ContactMe() {
         setShowError(true);
         setSubmitted(false);
       }
-    } catch (err) {
+    } catch {
       setShowError(true);
       setSubmitted(false);
     }
@@ -137,13 +138,17 @@ function ContactMe() {
             </Box>
           </FormControl>
 
-          <Button
-            variant="primary"
-            type="submit"
-            isDisabled={submitted || !isFormValid}
-          >
-            {submitted ? "Submitted" : "Click me to submit"}
-          </Button>
+          {submitted ? (
+            <LoaderButton />
+          ) : (
+            <Button
+              variant="primary"
+              type="submit"
+              isDisabled={!isFormValid}
+            >
+              Click me to submit
+            </Button>
+          )}
         </Form>
       </div>
     </>
